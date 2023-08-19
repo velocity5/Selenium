@@ -17,18 +17,18 @@ public class AccessingForms extends Thread{
             System.getProperty("web-driver.chrome.driver", Constant.Driver_Path_Chrome);
             try{
                 Thread.sleep(1000);
-                System.out.println("Initilizing...");
+                System.out.println("Initializing...");
             } catch(InterruptedException e){
-                throw new RuntimeException("Thread interrupted..." +e);
+                throw new RuntimeException("Thread interrupted ^_*!" +e);
             }
             driver = new ChromeDriver();
             String baseURL = "https://automationtesting.co.uk/contactForm.html";
             driver.get(baseURL);
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
         }
         @Test
-        public void Test() throws InterruptedException {
+        public void Test() {
             WebElement firstName = driver.findElement(By.name("first_name"));
             WebElement lastName = driver.findElement(By.name("last_name"));
 
@@ -43,7 +43,6 @@ public class AccessingForms extends Thread{
             driver.findElement(By.xpath("//*[contains(@name,\"message\")]")).click();
             WebElement clickSubmit = driver.findElement(By.xpath("//*[@id=\"form_buttons\"]/input[2]"));
             clickSubmit.click();
-            Thread.sleep(1000);
         }
         @AfterSuite
         public void end() {
@@ -52,8 +51,5 @@ public class AccessingForms extends Thread{
             System.out.println("Filled the form");
         }
     };
-/* Install chrome for test through Node.js - done
-Figure out how to include testng instead of JUnit, and how to use @Annotations - done
-How to quit driver - done
-How to use Git - done
+/*
  */
