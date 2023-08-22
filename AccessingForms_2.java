@@ -10,6 +10,10 @@ import java.util.concurrent.TimeUnit;
 
 public class AccessingForms_2 extends Constant{
 
+	public AccessingForms_2() throws IOException {
+		super();
+	}
+
 	@Parameters({"email","password"})
 		@Test
 		public void SignIn(String email, String password) throws InterruptedException, IOException {

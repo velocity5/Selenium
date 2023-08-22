@@ -13,6 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 public class AccessingForms_3 extends Constant{
 
+	public AccessingForms_3() throws IOException {
+		super();
+	}
+
 	@DataProvider
 	public Object[][] getData(){
 		Object[][] data = new Object[3][2];

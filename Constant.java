@@ -20,29 +20,37 @@ import java.util.concurrent.TimeUnit;
 public class Constant {
 	public static WebDriver driver;
 	private String url;
-
-	public WebDriver getDriver() throws IOException {
-		Properties prop = new Properties();
-		FileInputStream data = new FileInputStream("E:\\TestingDocs\\SeleniumInteliji\\maven_project\\src\\main\\java\\tutorial_selenium\\parameterize\\ConfigProp");
-		prop.load(data);
+	private Properties prop;
+	// using Constructor
+	public Constant() throws IOException{
+		prop = new Properties();
+		FileInputStream data = new FileInputStream(
+				System.getProperty("user.dir") + "\\src\\main\\java\\tutorial_selenium\\parameterize\\ConfigProp");
+			prop.load(data);
+	}
+	public WebDriver getDriver() {
+//		Properties prop = new Properties();
+//		FileInputStream data = new FileInputStream("E:\\TestingDocs\\SeleniumInteliji\\maven_project\\src\\main\\java\\tutorial_selenium\\parameterize\\ConfigProp");
+//		prop.load(data);
 		if (prop.getProperty("browser").equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "E:\\TestingDocs\\SeleniumInteliji\\maven_project\\chromedriver_win32\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",
+					System.getProperty("user.dir") + "\\src\\main\\java\\tutorial_selenium\\BDriver\\chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (prop.getProperty("browser").equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "E:\\TestingDocs\\SeleniumInteliji\\maven_project\\geckodriver_win64\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\main\\java\\tutorial_selenium\\BDriver\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		} else {
-			System.setProperty("webdriver.edge.driver", "E:\\TestingDocs\\SeleniumInteliji\\maven_project\\edgedriver_win64\\msedgedriver.exe");
+			System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "\\src\\main\\java\\tutorial_selenium\\BDriver\\msedgedriver.exe");
 			driver = new EdgeDriver();
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
 		return driver;
 	}
-	public String getUrl() throws IOException {
-		Properties prop = new Properties();
-		FileInputStream data = new FileInputStream("E:\\TestingDocs\\SeleniumInteliji\\maven_project\\src\\main\\java\\tutorial_selenium\\parameterize\\ConfigProp");
-		prop.load(data);
+	public String getUrl() {
+//		Properties prop = new Properties();
+//		FileInputStream data = new FileInputStream("E:\\TestingDocs\\SeleniumInteliji\\maven_project\\src\\main\\java\\tutorial_selenium\\parameterize\\ConfigProp");
+//		prop.load(data);
 		url = prop.getProperty("url");
 		return url;
 	}

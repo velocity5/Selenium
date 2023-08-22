@@ -7,9 +7,14 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class SkipTC extends Constant{
+
+	public SkipTC() throws IOException {
+		super();
+	}
 
 	@Test (enabled = false)
 	public void enterEmail() throws InterruptedException{

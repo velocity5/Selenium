@@ -9,9 +9,14 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 @Listeners(ITest_Listener.class)
 public class TestNGAssert extends Constant{
+	public TestNGAssert() throws IOException {
+		super();
+	}
+
 	@Test
 	public void enterEmail() throws InterruptedException{
 		Assert.fail();

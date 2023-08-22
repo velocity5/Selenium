@@ -18,6 +18,9 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class LoginMethod_2 extends Constant {
+	public LoginMethod_2() throws IOException {
+		super();
+	}
 	@Parameters({"email","password"})
 	@Test
 	public void SignIn(String email, String password) throws InterruptedException, IOException {

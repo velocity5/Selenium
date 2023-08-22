@@ -7,9 +7,14 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class DependsOnMethod extends Constant{
+
+	public DependsOnMethod() throws IOException {
+		super();
+	}
 
 	@Test
 	public void enterEmail() throws InterruptedException{
