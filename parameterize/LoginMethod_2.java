@@ -1,56 +1,43 @@
-package tutorial_selenium;
+package tutorial_selenium.parameterize;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import tutorial_selenium.Constant;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class AccessingForms_3 extends Constant{
-
-	@DataProvider
-	public Object[][] getData(){
-		Object[][] data = new Object[3][2];
-		// data set 1
-		data[0][0] = "test2@test.com";
-		data[0][1] = "test12345";
-		// data set 2
-		data[1][0] = "test@test.com";
-		data[1][1] = "test123";
-		// data set 3
-		data[2][0] = "test4@test.com";
-		data[2][1] = "test123";
-		return data;
-	}
-	@Test(dataProvider = "getData")
+public class LoginMethod_2 extends Constant {
+	@Parameters({"email","password"})
+	@Test
 	public void SignIn(String email, String password) throws InterruptedException, IOException {
 		driver = getDriver();
 		driver.get(getUrl());
 		WebElement SignInTab = driver.findElement(By.cssSelector("[title] .hidden-sm-down"));
 		SignInTab.click();
 		WebElement emailSection = driver.findElement(By.cssSelector("section input[name='email']"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		emailSection.sendKeys(email);
 		WebElement passSection = driver.findElement(By.name("password"));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		passSection.sendKeys(password);
 		driver.findElement(By.id("submit-login")).click();
-		System.out.println("User has logged in");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[contains(@class,'logout')]")).click();
-		System.out.println("User has logged out");
-		Thread.sleep(1000);
-	}
+		 takeSnapShot(driver);
 
+	}
 	@AfterSuite
-	public void end(){
+	public void closeDriver(){
 		driver.close();
 		driver.quit();
 	}
-
 }

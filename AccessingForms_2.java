@@ -5,29 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class AccessingForms_2 extends Thread{
-	public WebDriver driver;
-	@BeforeSuite
-	public void getSetup() {
-		// TODO Auto-generated method stub
-		System.getProperty("web-driver.chrome.driver", Constant.Driver_Path_Chrome);
-		try {
-			Thread.sleep(1000);
-			System.out.println("Initializing...");
-		} catch (InterruptedException e) {
-			throw new RuntimeException("Thread interrupted ^_*!" + e);
-		}
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
-	}
+public class AccessingForms_2 extends Constant{
+
 	@Parameters({"email","password"})
 		@Test
-		public void SignIn(String email, String password) throws InterruptedException{
-			String baseURL = "http://teststore.automationtesting.co.uk/";
-			driver.get(baseURL);
+		public void SignIn(String email, String password) throws InterruptedException, IOException {
+			driver = getDriver();
+			driver.get(getUrl());
 			WebElement SignInTab = driver.findElement(By.cssSelector("[title] .hidden-sm-down"));
 			SignInTab.click();
 			WebElement emailSection = driver.findElement(By.cssSelector("section input[name='email']"));
