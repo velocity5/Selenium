@@ -1,18 +1,15 @@
 package tutorial_selenium;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
 @Listeners(ITest_Listener.class)
-public class TestNGAssert extends Constant{
+public class TestNGAssert extends BaseURL {
 	public TestNGAssert() throws IOException {
 		super();
 	}

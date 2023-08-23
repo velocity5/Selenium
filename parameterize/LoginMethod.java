@@ -10,7 +10,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import tutorial_selenium.Constant;
 
 import java.io.FileInputStream;
 import java.io.IOException;

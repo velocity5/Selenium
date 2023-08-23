@@ -17,16 +17,16 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 
-public class Constant {
+public class BaseURL {
 	public static WebDriver driver;
 	private String url;
 	private Properties prop;
 	// using Constructor
-	public Constant() throws IOException{
+	public BaseURL() throws IOException{
 		prop = new Properties();
 		FileInputStream data = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\tutorial_selenium\\parameterize\\ConfigProp");
-			prop.load(data);
+		prop.load(data);
 	}
 	public WebDriver getDriver() {
 //		Properties prop = new Properties();

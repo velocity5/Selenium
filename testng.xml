@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="email" value="test@test.com"/>
-    <parameter name="password" value="test123"/>
-    <test verbose="2" preserve-order="true" name="E:/Testing related docs/SeleniumInteliji/maven_project/src/main/java/tutorial_selenium/AccessingForms.java">
+<!--    <parameter name="email" value="test@test.com"/>-->
+<!--    <parameter name="password" value="test123"/>-->
+    <test verbose="2" preserve-order="true" name="Test">
         <classes>
-            <class name="tutorial_selenium.AccessingForms_2"/>
+            <class name="TestCases.StoreLoginTest"/>
+<!--            <class name="tutorial_selenium.AccessingForms_3"/>-->
         </classes>
     </test>
 </suite>
